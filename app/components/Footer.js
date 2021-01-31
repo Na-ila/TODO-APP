@@ -7,15 +7,7 @@ import {Context} from './Context';
 
 export default function Footer() {
 
-    const [getState, setState] = useContext(Context);
-
-    // const   storage = async() => {
-    //     try {
-    //       await AsyncStorage.setItem('data', JSON.stringify({...getState}));
-    //     } catch (error) {
-    //       console.log('error');
-    //     }
-    //   }        
+    const [getState, setState] = useContext(Context);  
 
   const addTask = async () => {
     if (getState.task && getState.list) {
@@ -30,11 +22,6 @@ export default function Footer() {
             isHome: true,
         })
     }
-
-    // if (getState.list){
-        // storage()
-        // console.log(await AsyncStorage.getItem('data'));
-    // }
   }
 
   return (
@@ -46,7 +33,7 @@ export default function Footer() {
                 
                 setState({
             ...getState,
-            task: task,
+            task: task
             })}}
             value={getState.task}
             placeholder="New task"

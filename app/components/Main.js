@@ -13,17 +13,17 @@ export default function Main() {
 
   const [getState, setState] = useContext(Context);
   
-  // const load = async() => {
-  //   try {
-  //     let getState = await AsyncStorage.getItem('data')
+  const load = async() => {
+    try {
+      let getState = await AsyncStorage.getItem('data')
 
-  //     if (getState) {
-  //         setState(JSON.parse(getState));
-  //     }
-  //   } catch (error) {
-  //     console.log('error');
-  //   }
-  // }
+      if (getState) {
+          setState(JSON.parse(getState));
+      }
+    } catch (error) {
+      console.log('error');
+    }
+  }
 
 //   useEffect(() => {
 //     (async () => {
@@ -31,9 +31,9 @@ export default function Main() {
 //     })();
 //   }, []);
   
-  // useEffect(() => {
-  //   load()
-  // }, [])
+  useEffect(() => {
+    load()
+  }, [])
   
 
   return (

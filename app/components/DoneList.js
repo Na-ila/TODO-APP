@@ -1,11 +1,25 @@
 import React, {useContext} from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Image } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {Context} from './Context';
 
 export default function DoneList() {
 
   const [getState, setState] = useContext(Context);
+
+  const   storage = async() => {
+    try {
+      await AsyncStorage.setItem('data', JSON.stringify({...getState}));
+    } catch (error) {
+      console.log('error');
+    }
+  }  
+
+  setTimeout(() => {
+    storage()
+    console.log( AsyncStorage.getItem('data'));
+}, 1000);
 
   const deleteTask = (key) => {
     setState({
